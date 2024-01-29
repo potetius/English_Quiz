@@ -16,31 +16,12 @@ class QuizPageState extends State<QuizPage> {
   int index = 0;
   int result = 0;
   bool isSelectNow = true;
-  bool _visible = true;
 
   @override
   void initState() {
     quizList = widget.quizList;
     super.initState();
   }
-
-  // Future<void> updateQuiz(BuildContext context, int selectAnswer) async {
-  //   setState(() {
-  //     isSelectNow = false;
-  //   });
-  //   if (quizList[index]["answer"] == selectAnswer) {
-  //     result++;
-  //   }
-
-  //   await Future.delayed(const Duration(seconds: 1));
-  //   isSelectNow = true;
-  //   setState(() {});
-  //   index++;
-  //   if (index == quizList.length) {
-  //     await goToResult(context);
-  //   }
-  //   setState(() {});
-  // }
 
 Future<void> updateQuiz(BuildContext context, int selectAnswer) async {
   setState(() {
@@ -65,7 +46,7 @@ Future<void> updateQuiz(BuildContext context, int selectAnswer) async {
           style: TextStyle(color: isCorrectAnswer ? Colors.green : Colors.red),
         ),
         content: Text(
-          '正解は ${quizList[index]["select${quizList[index]["answer"]}"]} でした。',
+          '正解は ${quizList[index]["select${quizList[index]["answer"]}"]} です！！',
         ),
         actions: <Widget>[
           TextButton(
@@ -135,7 +116,7 @@ Future<void> updateQuiz(BuildContext context, int selectAnswer) async {
                               children: [
                                 ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                    fixedSize: Size.fromWidth(double.maxFinite),
+                                    fixedSize: const Size.fromWidth(double.maxFinite),
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(10),
                                     ),
